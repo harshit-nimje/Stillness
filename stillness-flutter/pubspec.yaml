@@ -1,0 +1,39 @@
+name: stillness
+description: Stillness — a calm place to plan your day, focus, and build better habits.
+publish_to: "none"
+version: 2.0.0+2
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+  flutter: ">=3.22.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: ^6.1.2
+  shared_preferences: ^2.2.3
+  flutter_svg: ^2.0.10+1
+  just_audio: ^0.9.40
+  audio_session: ^0.1.21
+  flutter_soloud: ^2.1.6
+  wakelock_plus: ^1.2.8
+  url_launcher: ^6.3.0
+
+dev_dependencies:
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: false
+  assets:
+    - assets/fonts/
+  fonts:
+    - family: Hanken Grotesk
+      fonts:
+        - asset: assets/fonts/HankenGrotesk.ttf
+        - asset: assets/fonts/HankenGrotesk-Italic.ttf
+          style: italic
+    - family: Newsreader
+      fonts:
+        - asset: assets/fonts/Newsreader.ttf
+        - asset: assets/fonts/Newsreader-Italic.ttf
+          style: italic
