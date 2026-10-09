@@ -21,10 +21,22 @@ jobs:
         with:
           channel: 'stable'
 
+      - name: Backup Source Files
+        run: |
+          # Temporarily copy your real custom app logic to a safe directory
+          mkdir -p /tmp/app_source
+          cp -r lib assets /tmp/app_source/ || true
+
       - name: Create Platform Scaffolding
         run: |
-          # This command creates the missing android/ configuration folder safely
-          flutter create . --platforms=android
+          # Generate the underlying native infrastructure files
+          flutter create . --platforms=android --project-name=stillness
+
+      - name: Restore Source Files
+        run: |
+          # Overwrite the default Google Counter files with your real code
+          cp -r /tmp/app_source/* .
+          rm -rf /tmp/app_source
 
       - name: Install dependencies
         run: flutter pub get
@@ -37,3 +49,4 @@ jobs:
         with:
           name: release-apk
           path: build/app/outputs/flutter-apk/app-release.apk
+
