@@ -23,8 +23,8 @@ jobs:
 
       - name: Create Platform Scaffolding
         run: |
-          # This command creates the missing android/ configuration folder safely
-          flutter create . --platforms=android
+          # Overriding the capital letter error by forcing a lowercase project identifier
+          flutter create . --platforms=android --project-name=stillness
 
       - name: Install dependencies
         run: flutter pub get
@@ -37,3 +37,4 @@ jobs:
         with:
           name: release-apk
           path: build/app/outputs/flutter-apk/app-release.apk
+
